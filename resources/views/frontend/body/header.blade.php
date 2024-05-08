@@ -199,7 +199,7 @@
                                 <ul>
                                     @foreach($categories as $item)
 
-                                      @if($loop->index <5)
+                                      @if($loop->index < 5)
                                     <li>
                                         <a href="{{ url('/product/category/'.$item->id.'/'.$item->category_slug) }}"> <img
                                                 src="{{ asset($item->category_image) }}"
@@ -216,7 +216,7 @@
 
                                     @foreach($categories as $item)
 
-                                    @if($loop->index >5)
+                                    @if($loop->index > 4)
 
                                     <li>
                                         <a href="{{ url('/product/category/'.$item->id.'/'.$item->category_slug) }}"> <img

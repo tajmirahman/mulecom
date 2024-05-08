@@ -163,7 +163,8 @@ class CheckOutController extends Controller
             'alert-type' => 'success'
         );
 
-        // Notification::send($user, new OrderComplete($request->name));
+        Notification::send($user, new OrderComplete($request->name));
+
         return redirect()->route('dashboard')->with($notification);
 
 

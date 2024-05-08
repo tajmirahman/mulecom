@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Notifications\ActiveVendor;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
@@ -117,6 +119,10 @@ class AdminController extends Controller
             'message'=>'Vendor Active Successfully',
             'alert-type'=>'success',
         );
+
+        $actvuser= User::where('role','vendor')->get();
+        Notification::send($actvuser, new ActiveVendor($request));
+
         return redirect()->route('active.vendor')->with($notification);
     }//end method
 
